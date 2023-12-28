@@ -7,6 +7,7 @@ target 'SeSACAppleLogin' do
 
 pod 'KakaoSDKCommon'
 pod 'KakaoSDKAuth'
+pod 'KakaoSDKUser'
 
   # Pods for SeSACAppleLogin
 
