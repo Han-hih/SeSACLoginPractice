@@ -38,9 +38,7 @@
 	</dict>
     <key>LSApplicationQueriesSchemes</key>
       <array>
-          <!-- 카카오톡으로 로그인 -->
           <string>kakaokompassauth</string>
-          <!-- 카카오링크 -->
           <string>kakaolink</string>
       </array>
 </dict>

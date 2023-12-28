@@ -24,17 +24,44 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AUY-5V-h3R">
+                                <rect key="frame" x="30" y="259" width="333" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="WKM-mY-bh6"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="kakaoLoginButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9V8-F7-HDV"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yYb-2E-ZiQ">
+                                <rect key="frame" x="76" y="338" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ucP-ED-eOd">
+                                <rect key="frame" x="175" y="499" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="YGY-WI-rdq" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="1LT-8m-xd9"/>
+                            <constraint firstItem="AUY-5V-h3R" firstAttribute="top" secondItem="YGY-WI-rdq" secondAttribute="bottom" constant="50" id="OKs-Pw-NKM"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YGY-WI-rdq" secondAttribute="trailing" constant="30" id="QMH-j2-xLW"/>
                             <constraint firstItem="YGY-WI-rdq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="SMZ-yv-5Gm"/>
+                            <constraint firstItem="AUY-5V-h3R" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="UfH-aW-zpT"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="AUY-5V-h3R" secondAttribute="trailing" constant="30" id="eEG-Ch-ivj"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="appleLoginButton" destination="YGY-WI-rdq" id="MjQ-V1-YZn"/>
+                        <outlet property="infoLabel" destination="ucP-ED-eOd" id="QJ2-g2-rDG"/>
+                        <outlet property="profileImageView" destination="yYb-2E-ZiQ" id="GTp-LY-dG3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -7,6 +7,8 @@
 
 import UIKit
 import AuthenticationServices
+import KakaoSDKAuth
+import KakaoSDKUser
 
 /*
  소셜 로그인(페북/ 구글/ 카카오..), 애플 로그인 구현 필수(미구현 시 리젝사유)
@@ -15,6 +17,8 @@ import AuthenticationServices
  */
 
 class MainViewController: UIViewController {
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,13 +30,52 @@ class MainViewController: UIViewController {
 class ViewController: UIViewController {
 
     @IBOutlet weak var appleLoginButton: ASAuthorizationAppleIDButton!
+    
+    
+    @IBOutlet weak var profileImageView: UIImageView!
+    
+    @IBOutlet weak var infoLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         appleLoginButton.addTarget(self, action: #selector(appleLoginButtonClicked), for: .touchUpInside)
     }
     
-    
-    
+    @IBAction func kakaoLoginButtonClicked(_ sender: UIButton) {
+        if (UserApi.isKakaoTalkLoginAvailable()) {
+            UserApi.shared.loginWithKakaoTalk {(oauthToken, error) in
+                if let error = error {
+                    print(error)
+                }
+                else {
+                    print("loginWithKakaoTalk() success.")
+
+                   let _ = oauthToken
+                    let accessToken = oauthToken?.accessToken
+                   
+                   self.setUserInfo()
+                }
+            }
+        }
+    }
+  private func setUserInfo() {
+           UserApi.shared.me() {(user, error) in
+               if let error = error {
+                   print(error)
+               }
+               else {
+                   print("me() success.")
+                   //do something
+                   _ = user
+                   self.infoLabel.text = user?.kakaoAccount?.profile?.nickname
+                   
+                   if let url = user?.kakaoAccount?.profile?.profileImageUrl,
+                       let data = try? Data(contentsOf: url) {
+                       self.profileImageView.image = UIImage(data: data)
+                   }
+               }
+           }
+       }
+
     @objc func appleLoginButtonClicked() {
         let appleIDProvider = ASAuthorizationAppleIDProvider()
         let request = appleIDProvider.createRequest()
